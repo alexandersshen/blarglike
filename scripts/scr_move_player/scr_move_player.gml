@@ -76,6 +76,7 @@ function scr_move_player(_direction){
 		
 			case global.icon_wall:
 				console("Ooof! You're run into a wall.");
+				global.console_text = "Ooof! You've run into a wall.";
 			break;
 		}
 	} else {	
@@ -94,6 +95,7 @@ function scr_move_player(_direction){
 				// obj_player.y += yMoveTile;
 			
 				console("You got some food!");
+				global.console_text = "You got some food!";
 				global.player_hunger += 1;
 			
 				// replace the food with the player

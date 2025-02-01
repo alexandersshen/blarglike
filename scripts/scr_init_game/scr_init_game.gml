@@ -6,6 +6,8 @@ function scr_init_game(){
 	
 	global.map_width = 30;
 	global.map_height = 20;
+	
+	global.console_text = "";
 
 	global.icon_player = "@";
 	global.icon_enemy = "E";

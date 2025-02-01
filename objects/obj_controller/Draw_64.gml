@@ -8,3 +8,5 @@ draw_text(10,10,"Health: " + string(global.player_health) +
 				" | XP: " + string(global.player_xp) +
 				" | ATK: " + string(global.player_atk) + 
 				" | Floor: " + string(global.player_floor));
+				
+draw_text(10,360,string(global.console_text));
