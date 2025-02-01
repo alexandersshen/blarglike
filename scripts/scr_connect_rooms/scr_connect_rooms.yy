@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"scr_connect_rooms",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_connect_rooms",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

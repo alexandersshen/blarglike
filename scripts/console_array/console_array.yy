@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"console_array",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"console_array",
+  "parent":{
+    "name":"tools",
+    "path":"folders/Scripts/tools.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
