@@ -56,6 +56,7 @@ function scr_move_player(_direction){
 			// You've reached the exit
 			case global.icon_exit:
 				global.player_floor += 1;
+				global.console_text = "You've reached an exit!";
 				scr_reset_map();
 			break;
 		
@@ -71,7 +72,9 @@ function scr_move_player(_direction){
 				// obj_player.y += yMoveTile;
 			
 				// re-add new location of player from entities map
-				global.map_entities[obj_player._y,obj_player._x] = global.icon_player;		
+				global.map_entities[obj_player._y,obj_player._x] = global.icon_player;	
+				
+				global.console_text = "";
 			break;
 		
 			case global.icon_wall:
@@ -104,6 +107,7 @@ function scr_move_player(_direction){
 			
 			case global.icon_enemy:
 				console("Ouch! An enemy!");
+				global.console_text = "Ow! You ran into an enemy!";
 				for (var i = 0; i < array_length(global.map_enemies); i++)
 				{
 					if (global.map_enemies[i]._y == obj_player._y + yMove)

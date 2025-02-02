@@ -35,9 +35,11 @@ function scr_init_game(){
 	
 	global.rooms_to_generate = 6;
 	
-	global.tile_size = 16;
+	global.tile_size = 32;
 	global.offsetX = 32;
 	global.offsetY = 32;	
+	
+	global.moveSpeed = 8;
 	
 	// generate the empty map
 	scr_generate_map();

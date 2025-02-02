@@ -6,8 +6,8 @@ function scr_render_map(){
 	global.map_enemies = [];
 	
 	tile_size = global.tile_size;
-	global.offsetX = 32;
-	global.offsetY = 32;
+	//global.offsetX = 32;
+	//global.offsetY = 32;
 	
 	// draw this damned map bro
 	for (var _col = 0; _col < global.map_width; _col++)
