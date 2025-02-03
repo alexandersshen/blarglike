@@ -30,11 +30,18 @@ function scr_generate_map(){
 		_width = floor(random(5)) + 4;	// how wide the room can be
 		_height = floor(random(4)) + 3;	// how tall the room can be
 		
+		// randomly select where this room should appear
+		// the +1 ensures that it doesn't appear on the edge - i.e. _col = 0
 		_x = floor(random(global.map_width - _width - 1) + 1);
 		_y = floor(random(global.map_height - _height - 1) + 1);
 		
+		// create the room object
 		_room = [_x,_y,_width,_height];
+		
+		// add this room object to the rooms array
 		array_push(global.rooms,_room);
+		
+		// dig the room - i.e. place it inside the map
 		scr_dig_room(_x,_y,_width,_height);
 	}
 	

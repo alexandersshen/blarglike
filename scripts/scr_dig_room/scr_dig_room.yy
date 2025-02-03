@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_dig_room",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Map Generation",
+    "path":"folders/Scripts/Map Generation.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -14,11 +14,6 @@ if (x != _x * global.tile_size + global.offsetX)
 	   {
 			x -= global.moveSpeed;
 	   }
-	   
-	   /*
-	   x = _x * global.tile_size + global.offsetX;
-	   y = _y * global.tile_size + global.offsetY;
-	   */
 }
    
 if (y != _y * global.tile_size + global.offsetY)
