@@ -61,6 +61,7 @@
     {"id":{"name":"scr_player_up","path":"scripts/scr_player_up/scr_player_up.yy",},},
     {"id":{"name":"scr_render_map","path":"scripts/scr_render_map/scr_render_map.yy",},},
     {"id":{"name":"scr_reset_map","path":"scripts/scr_reset_map/scr_reset_map.yy",},},
+    {"id":{"name":"scr_update_player_score","path":"scripts/scr_update_player_score/scr_update_player_score.yy",},},
     {"id":{"name":"shuffleArray","path":"scripts/shuffleArray/shuffleArray.yy",},},
     {"id":{"name":"spr_enemy","path":"sprites/spr_enemy/spr_enemy.yy",},},
     {"id":{"name":"spr_exit","path":"sprites/spr_exit/spr_exit.yy",},},

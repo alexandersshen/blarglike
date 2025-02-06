@@ -5,6 +5,23 @@ function scr_init_game(){
 	
 	console("script: scr_init_game()");
 	
+	var todays_date = date_current_datetime();
+	var year = string(date_get_year(todays_date));
+	var month = string(date_get_month(todays_date));
+	var day = string(date_get_day(todays_date));
+
+	// Ensure two-digit formatting
+	if (string_length(month) == 1) month = "0" + month;
+	if (string_length(day) == 1) day = "0" + day;
+
+	var formatted_date = year + month + day;
+
+	global.current_date = formatted_date;
+
+	// formatted_date = real(formatted_date); // Convert back to a number if needed
+
+	global.player_score = 0;
+	
 	global.map_width = 30;
 	global.map_height = 20;
 	
@@ -17,13 +34,16 @@ function scr_init_game(){
 	global.icon_floor = ".";
 	global.icon_exit = "X";
 
-	global.player_health = 20;
-	global.player_health_max = 25;
-	global.player_hunger = 10;
-	global.player_hunger_max = 15;
+	global.player_health = 50;
+	global.player_health_max = 50;
+	global.player_nutrients = 0;
+	global.player_nutrients_max = 999;
 	global.player_xp = 0;
 	global.player_floor = 1;
 	global.player_atk = 1;
+	
+	global.player_recharge = 5;	// how much battery gives you
+	global.player_nutrients_recharge = 1;	// how much nutrients give you
 
 	global.map = [];
 	global.map_entities = [];

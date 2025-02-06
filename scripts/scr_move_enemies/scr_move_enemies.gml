@@ -8,7 +8,8 @@ function scr_move_enemies(){
 		possibleDirections = [];
 		tempEnemy = global.map_enemies[i];
 		
-		if (tempEnemy._status = "free")
+		// if the enemy is "Free" to move around
+		if (tempEnemy._status == "free")
 		{
 		
 			// ==============================
@@ -83,5 +84,28 @@ function scr_move_enemies(){
 			}
 		}
 		
+		// if the enemy is actually dead
+		if (tempEnemy._status == "dead")
+		{
+			// make that tile on the entities array a floor
+			global.map_entities[tempEnemy._y,tempEnemy._x] = global.icon_floor;		
+			
+			// mark for deletion
+			global.map_enemies[i] = "remove";
+			
+			// delete the object
+			instance_destroy(tempEnemy);
+		}
+		
+	}
+	
+	// clean up enemies array
+	for (var j = array_length(global.map_enemies)-1; j >= 0; j--)
+	{
+		// delete the entry from map_enemies[j] if == "removed"
+		if (global.map_enemies[j] == "remove")
+		{
+			array_delete(global.map_enemies,j,1);
+		}
 	}
 }

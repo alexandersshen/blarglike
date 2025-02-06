@@ -38,6 +38,7 @@
     {"name":"scr_player_up","order":4,"path":"scripts/scr_player_up/scr_player_up.yy",},
     {"name":"scr_render_map","order":16,"path":"scripts/scr_render_map/scr_render_map.yy",},
     {"name":"scr_reset_map","order":14,"path":"scripts/scr_reset_map/scr_reset_map.yy",},
+    {"name":"scr_update_player_score","order":25,"path":"scripts/scr_update_player_score/scr_update_player_score.yy",},
     {"name":"shuffleArray","order":2,"path":"scripts/shuffleArray/shuffleArray.yy",},
     {"name":"spr_enemy","order":3,"path":"sprites/spr_enemy/spr_enemy.yy",},
     {"name":"spr_exit","order":2,"path":"sprites/spr_exit/spr_exit.yy",},

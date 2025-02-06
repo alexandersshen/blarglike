@@ -11,6 +11,9 @@ if (global.map_entities[_y,_x] == global.icon_enemy)
 }
 */
 
+// ========================
+// This code is for smoooooth movement
+// ========================
 if (x != _x * global.tile_size + global.offsetX)
 {
 	   console(">> obj_player -> moving");
