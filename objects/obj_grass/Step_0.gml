@@ -1,6 +1,13 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if (_counter > 0)
+{
+	_counter -= 1;
+} else {
+	image_alpha = 1;
+}
+
 // ===--===-==-===-===--===-===-===--==-===
 // hacky way to clean up these grass floors
 // if they go outside of the map area

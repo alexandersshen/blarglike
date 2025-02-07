@@ -31,5 +31,5 @@ function scr_reset_map(_restart){
 		random_set_seed(real(global.current_date) + real(global.player_floor));
 	}
 	
-	scr_do_the_things();
+	scr_new_game();
 }

@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"scr_render_map",
+  "%Name":"scr_render_title",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_render_map",
+  "name":"scr_render_title",
   "parent":{
     "name":"render",
     "path":"folders/Scripts/render.yy",

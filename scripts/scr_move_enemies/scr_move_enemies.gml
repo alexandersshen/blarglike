@@ -51,37 +51,43 @@ function scr_move_enemies(){
 			possibleDirections = shuffleArray(possibleDirections);
 			// console(">> possibleDirections After: " + string(possibleDirections))
 		
-			// move the enemy
-			switch (possibleDirections[0])
+			// ERROR CHECK (?) - seem to get an out of bounds error here sometimes
+			if (array_length(possibleDirections) > 0)
 			{
-				case "up":
-					console(">> up");
-					global.map_entities[tempEnemy._y-1,tempEnemy._x] = global.icon_enemy;
-					global.map_entities[tempEnemy._y,tempEnemy._x] = global.icon_floor;
-					tempEnemy._y -= 1;
-				break;
+				// move the enemy
+				switch (possibleDirections[0])
+				{
+					case "up":
+						console(">> up");
+						global.map_entities[tempEnemy._y-1,tempEnemy._x] = global.icon_enemy;
+						global.map_entities[tempEnemy._y,tempEnemy._x] = global.icon_floor;
+						tempEnemy._y -= 1;
+					break;
 			
-				case "down":
-					console(">> down");
-					global.map_entities[tempEnemy._y+1,tempEnemy._x] = global.icon_enemy;
-					global.map_entities[tempEnemy._y,tempEnemy._x] = global.icon_floor;
-					tempEnemy._y += 1;
-				break;
+					case "down":
+						console(">> down");
+						global.map_entities[tempEnemy._y+1,tempEnemy._x] = global.icon_enemy;
+						global.map_entities[tempEnemy._y,tempEnemy._x] = global.icon_floor;
+						tempEnemy._y += 1;
+					break;
 			
-				case "left":
-					console(">> left");
-					global.map_entities[tempEnemy._y,tempEnemy._x-1] = global.icon_enemy;
-					global.map_entities[tempEnemy._y,tempEnemy._x] = global.icon_floor;
-					tempEnemy._x -= 1;
-				break;
+					case "left":
+						console(">> left");
+						global.map_entities[tempEnemy._y,tempEnemy._x-1] = global.icon_enemy;
+						global.map_entities[tempEnemy._y,tempEnemy._x] = global.icon_floor;
+						tempEnemy._x -= 1;
+					break;
 			
-				case "right":
-					console(">> right");
-					global.map_entities[tempEnemy._y,tempEnemy._x+1] = global.icon_enemy;
-					global.map_entities[tempEnemy._y,tempEnemy._x] = global.icon_floor;
-					tempEnemy._x += 1;
-				break;
-			}
+					case "right":
+						console(">> right");
+						global.map_entities[tempEnemy._y,tempEnemy._x+1] = global.icon_enemy;
+						global.map_entities[tempEnemy._y,tempEnemy._x] = global.icon_floor;
+						tempEnemy._x += 1;
+					break;
+				} 
+			} else {
+					console("!! Error: possibleDirection out of bounds error !!");
+				}
 		}
 		
 		// if the enemy is actually dead

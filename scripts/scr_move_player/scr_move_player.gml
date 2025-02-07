@@ -150,9 +150,11 @@ function scr_move_player(_direction){
 			global.player_health -= 1;
 			
 			// == special FX ==
+			// CREATE GRASS
 			// If the player is dead. explode a bunch of plants/grass
 			// in all directions = nutrient amount
 			// == special FX ==
+			grassCounter = 10;
 			if (global.player_health <= 0)
 			{
 				console(">> creating grass now");
@@ -160,54 +162,64 @@ function scr_move_player(_direction){
 				// as nutrients go
 				for (var i = 1; i < global.player_nutrients+1; i++)
 				{
-					console(">> poo " + string(i));
-					// up floors
-					tempGrassUp = instance_create_layer((obj_player._x * global.tile_size) + global.offsetX,
-														(obj_player._y*global.tile_size) - (i * global.tile_size) + global.offsetY,
-														"Instances",obj_grass);
-					tempGrassUp.depth = -tempGrassUp.y;
-				
-					// up-right floors
-					tempGrassUR = instance_create_layer((obj_player._x * global.tile_size) + (i * global.tile_size) + global.offsetX,
-														(obj_player._y*global.tile_size) - (i * global.tile_size) + global.offsetY,
-														"Instances",obj_grass);
-					tempGrassUR.depth = -tempGrassUR.y;
-				
-					// right floors
-					tempGrassRight = instance_create_layer((obj_player._x * global.tile_size) + (i * global.tile_size) + global.offsetX,
-															(obj_player._y * global.tile_size) + global.offsetY,
+
+						console(">>> creating some grass - counter: " + string(grassCounter) + " x " + string(i));
+						// up floors
+						tempGrassUp = instance_create_layer((obj_player._x * global.tile_size) + global.offsetX,
+															(obj_player._y*global.tile_size) - (i * global.tile_size) + global.offsetY,
 															"Instances",obj_grass);
-					tempGrassRight.depth = -tempGrassRight.y;
+						tempGrassUp.depth = -tempGrassUp.y;
+						tempGrassUp._counter = grassCounter * i;
 				
-					// down-right floors
-					tempGrassDR = instance_create_layer((obj_player._x * global.tile_size) + (i * global.tile_size) + global.offsetX,
-														(obj_player._y*global.tile_size) + (i * global.tile_size) + global.offsetY,
-														"Instances",obj_grass);
-					tempGrassDR.depth = -tempGrassDR.y;
-				
-					// down floors
-					tempGrassDown = instance_create_layer((obj_player._x * global.tile_size) + global.offsetX,
-															(obj_player._y * global.tile_size) + (i * global.tile_size) + global.offsetY,
+						// up-right floors
+						tempGrassUR = instance_create_layer((obj_player._x * global.tile_size) + (i * global.tile_size) + global.offsetX,
+															(obj_player._y*global.tile_size) - (i * global.tile_size) + global.offsetY,
 															"Instances",obj_grass);
-					tempGrassDown.depth = -tempGrassDown.y;
+						tempGrassUR.depth = -tempGrassUR.y;
+						tempGrassUR._counter = grassCounter * i;
 				
-					// down-left floors
-					tempGrassDL = instance_create_layer((obj_player._x * global.tile_size) - (i * global.tile_size) + global.offsetX,
-														(obj_player._y*global.tile_size) + (i * global.tile_size) + global.offsetY,
-														"Instances",obj_grass);
-					tempGrassDL.depth = -tempGrassDL.y;
+						// right floors
+						tempGrassRight = instance_create_layer((obj_player._x * global.tile_size) + (i * global.tile_size) + global.offsetX,
+																(obj_player._y * global.tile_size) + global.offsetY,
+																"Instances",obj_grass);
+						tempGrassRight.depth = -tempGrassRight.y;
+						tempGrassRight._counter = grassCounter * i;
 				
-					// left floors
-					tempGrassLeft = instance_create_layer((obj_player._x * global.tile_size) - (i * global.tile_size) + global.offsetX,
-															(obj_player._y * global.tile_size) + global.offsetY,
+						// down-right floors
+						tempGrassDR = instance_create_layer((obj_player._x * global.tile_size) + (i * global.tile_size) + global.offsetX,
+															(obj_player._y*global.tile_size) + (i * global.tile_size) + global.offsetY,
 															"Instances",obj_grass);
-					tempGrassLeft.depth = -tempGrassLeft.y;
+						tempGrassDR.depth = -tempGrassDR.y;
+						tempGrassDR._counter = grassCounter * i;
 				
-					// up-left floors
-					tempGrassUL = instance_create_layer((obj_player._x * global.tile_size) - (i * global.tile_size) + global.offsetX,
-														(obj_player._y*global.tile_size) - (i * global.tile_size) + global.offsetY,
-														"Instances",obj_grass);
-					tempGrassUL.depth = -tempGrassUL.y;
+						// down floors
+						tempGrassDown = instance_create_layer((obj_player._x * global.tile_size) + global.offsetX,
+																(obj_player._y * global.tile_size) + (i * global.tile_size) + global.offsetY,
+																"Instances",obj_grass);
+						tempGrassDown.depth = -tempGrassDown.y;
+						tempGrassDown._counter = grassCounter * i;
+				
+						// down-left floors
+						tempGrassDL = instance_create_layer((obj_player._x * global.tile_size) - (i * global.tile_size) + global.offsetX,
+															(obj_player._y*global.tile_size) + (i * global.tile_size) + global.offsetY,
+															"Instances",obj_grass);
+						tempGrassDL.depth = -tempGrassDL.y;
+						tempGrassDL._counter = grassCounter * i;
+				
+						// left floors
+						tempGrassLeft = instance_create_layer((obj_player._x * global.tile_size) - (i * global.tile_size) + global.offsetX,
+																(obj_player._y * global.tile_size) + global.offsetY,
+																"Instances",obj_grass);
+						tempGrassLeft.depth = -tempGrassLeft.y;
+						tempGrassLeft._counter = grassCounter * i;
+				
+						// up-left floors
+						tempGrassUL = instance_create_layer((obj_player._x * global.tile_size) - (i * global.tile_size) + global.offsetX,
+															(obj_player._y*global.tile_size) - (i * global.tile_size) + global.offsetY,
+															"Instances",obj_grass);
+						tempGrassUL.depth = -tempGrassUL.y;
+						tempGrassUL._counter = grassCounter * i;
+					
 				}
 			}
 		}

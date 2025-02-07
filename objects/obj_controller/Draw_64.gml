@@ -14,5 +14,5 @@ draw_text(10,680,string(global.console_text));
 
 if (global.player_health == 0)
 {
-	global.console_text = "=== GAME OVER: you have detonated the seed bomb! Press 'R' to restart! ===";
+	global.console_text = "=== MISSION SUCCESS == You have successfully deployed the seed bomb. Press 'R' to restart! ===";
 }

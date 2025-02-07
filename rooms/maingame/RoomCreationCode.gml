@@ -1,0 +1,1 @@
+scr_reset_map(true);

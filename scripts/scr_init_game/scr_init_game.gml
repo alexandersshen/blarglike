@@ -56,6 +56,7 @@ function scr_init_game(){
 	
 	global.rooms_to_generate = 6;
 	
+	// overall tile sizes
 	global.tile_size = 32;
 	global.offsetX = 32;
 	global.offsetY = 32;	
@@ -63,7 +64,5 @@ function scr_init_game(){
 	global.moveSpeed = 8;
 	
 	random_set_seed(global.current_date);
-	
-	scr_do_the_things();
 	
 }
