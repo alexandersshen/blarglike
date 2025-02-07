@@ -98,8 +98,6 @@ function scr_move_player(_direction){
 					// update the location of the player
 					obj_player._x += xMove;
 					obj_player._y += yMove;
-					// obj_player.x += xMoveTile;
-					// obj_player.y += yMoveTile;
 			
 					console("You got some food!");
 					global.console_text = "You recharged some of your battery! (+" + string(global.player_recharge) + " Battery)";
@@ -116,11 +114,14 @@ function scr_move_player(_direction){
 			
 					// replace the food with the player
 					global.map_entities[obj_player._y,obj_player._x] = global.icon_player;
+					
+					// create the little special FX
+					instance_create_layer((obj_player._x * global.tile_size) + global.offsetX,obj_player._y * global.tile_size,"Entities",obj_food_get);
 				break;	
 			
 				case global.icon_enemy:
 					console("Ouch! An enemy!");
-					global.console_text = "You picked up some nutrients!";
+					global.console_text = "You picked up some nutrients! (+" + string(global.player_recharge*2) + " Battery, +" + string(global.player_nutrients_recharge) + " Nutrients)";
 					
 					// iterate through the different enemies to see which one you actually ran into
 					// using where the player is going to move to determine which enemy we're looking for
@@ -140,11 +141,21 @@ function scr_move_player(_direction){
 					} else {
 						global.player_nutrients = global.player_nutrients_max;
 					}
+					
+					if (global.player_health + (global.player_recharge * 2) >= global.player_health_max)
+					{ 
+						global.player_health = global.player_health_max;
+					} else {
+						global.player_health += (global.player_recharge * 2) + 1;
+					}
 				break;
 			}
 		}
 		
 		// update player health
+		// if you just got the battery, you don't lose for it. it just feels weird
+		// to get +5 but see that it only went up +4, even though logically it makes
+		// a lot of sense.
 		if (!just_got_battery)
 		{
 			global.player_health -= 1;

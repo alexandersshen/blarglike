@@ -99,6 +99,9 @@ function scr_move_enemies(){
 			// mark for deletion
 			global.map_enemies[i] = "remove";
 			
+			// create the sparkle zap death enemy
+			instance_create_layer(tempEnemy.x,tempEnemy.y,"Entities",obj_enemy_zap);
+			
 			// delete the object
 			instance_destroy(tempEnemy);
 		}
