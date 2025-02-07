@@ -6,7 +6,8 @@
 // ========================
 if (x != _x * global.tile_size + global.offsetX)
 {
-	   console(">> obj_player -> moving");
+		console(">> obj_player -> moving x");
+		_moving = true;
 	   // if x
 	   if (x < _x * global.tile_size + global.offsetX)
 	   {
@@ -21,6 +22,8 @@ if (x != _x * global.tile_size + global.offsetX)
    
 if (y != _y * global.tile_size + global.offsetY)
 {
+		console(">> obj_player -> moving y");
+		_moving = true;
 	   // if y
 	   if (y < _y * global.tile_size + global.offsetY)
 	   {
@@ -32,3 +35,9 @@ if (y != _y * global.tile_size + global.offsetY)
 			y -= global.moveSpeed;
 	   }		
 }
+
+if ((y == _y * global.tile_size + global.offsetY) &&
+	(x == _x * global.tile_size + global.offsetX))
+	{
+		_moving = false;
+	}

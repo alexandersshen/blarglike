@@ -16,7 +16,7 @@ function scr_init_game(){
 
 	var formatted_date = year + month + day;
 
-	global.current_date = formatted_date;
+	global.current_date = real(formatted_date);
 
 	// formatted_date = real(formatted_date); // Convert back to a number if needed
 
@@ -34,9 +34,9 @@ function scr_init_game(){
 	global.icon_floor = ".";
 	global.icon_exit = "X";
 
-	global.player_health = 50;
-	global.player_health_max = 50;
-	global.player_nutrients = 0;
+	global.player_health = 99;
+	global.player_health_max = 99;
+	global.player_nutrients = 1;
 	global.player_nutrients_max = 999;
 	global.player_xp = 0;
 	global.player_floor = 1;
@@ -62,13 +62,8 @@ function scr_init_game(){
 	
 	global.moveSpeed = 8;
 	
-	// generate the empty map
-	scr_generate_map();
+	random_set_seed(global.current_date);
 	
-	// place entities
-	scr_place_entities();
-	
-	// render the map
-	scr_render_map();
+	scr_do_the_things();
 	
 }

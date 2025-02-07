@@ -3,7 +3,7 @@
 function scr_move_player(_direction){
 	var just_got_battery = false;
 	
-	if (global.player_health > 0)
+	if (global.player_health > 0) && (!obj_player._moving)
 	{
 		console("script: scr_move_player");
 	
@@ -61,7 +61,7 @@ function scr_move_player(_direction){
 				case global.icon_exit:
 					global.player_floor += 1;
 					global.console_text = "You've reached an exit!";
-					scr_reset_map();
+					scr_reset_map(false);
 				break;
 		
 				// You've reached a floor tile
@@ -82,7 +82,7 @@ function scr_move_player(_direction){
 				break;
 		
 				case global.icon_wall:
-					console("Ooof! You're run into a wall.");
+					// console("Ooof! You're run into a wall.");
 					global.console_text = "Ooof! You've run into a wall.";
 				break;
 			}
@@ -148,6 +148,68 @@ function scr_move_player(_direction){
 		if (!just_got_battery)
 		{
 			global.player_health -= 1;
+			
+			// == special FX ==
+			// If the player is dead. explode a bunch of plants/grass
+			// in all directions = nutrient amount
+			// == special FX ==
+			if (global.player_health <= 0)
+			{
+				console(">> creating grass now");
+				// change all the floors around it into grass tiles as far
+				// as nutrients go
+				for (var i = 1; i < global.player_nutrients+1; i++)
+				{
+					console(">> poo " + string(i));
+					// up floors
+					tempGrassUp = instance_create_layer((obj_player._x * global.tile_size) + global.offsetX,
+														(obj_player._y*global.tile_size) - (i * global.tile_size) + global.offsetY,
+														"Instances",obj_grass);
+					tempGrassUp.depth = -tempGrassUp.y;
+				
+					// up-right floors
+					tempGrassUR = instance_create_layer((obj_player._x * global.tile_size) + (i * global.tile_size) + global.offsetX,
+														(obj_player._y*global.tile_size) - (i * global.tile_size) + global.offsetY,
+														"Instances",obj_grass);
+					tempGrassUR.depth = -tempGrassUR.y;
+				
+					// right floors
+					tempGrassRight = instance_create_layer((obj_player._x * global.tile_size) + (i * global.tile_size) + global.offsetX,
+															(obj_player._y * global.tile_size) + global.offsetY,
+															"Instances",obj_grass);
+					tempGrassRight.depth = -tempGrassRight.y;
+				
+					// down-right floors
+					tempGrassDR = instance_create_layer((obj_player._x * global.tile_size) + (i * global.tile_size) + global.offsetX,
+														(obj_player._y*global.tile_size) + (i * global.tile_size) + global.offsetY,
+														"Instances",obj_grass);
+					tempGrassDR.depth = -tempGrassDR.y;
+				
+					// down floors
+					tempGrassDown = instance_create_layer((obj_player._x * global.tile_size) + global.offsetX,
+															(obj_player._y * global.tile_size) + (i * global.tile_size) + global.offsetY,
+															"Instances",obj_grass);
+					tempGrassDown.depth = -tempGrassDown.y;
+				
+					// down-left floors
+					tempGrassDL = instance_create_layer((obj_player._x * global.tile_size) - (i * global.tile_size) + global.offsetX,
+														(obj_player._y*global.tile_size) + (i * global.tile_size) + global.offsetY,
+														"Instances",obj_grass);
+					tempGrassDL.depth = -tempGrassDL.y;
+				
+					// left floors
+					tempGrassLeft = instance_create_layer((obj_player._x * global.tile_size) - (i * global.tile_size) + global.offsetX,
+															(obj_player._y * global.tile_size) + global.offsetY,
+															"Instances",obj_grass);
+					tempGrassLeft.depth = -tempGrassLeft.y;
+				
+					// up-left floors
+					tempGrassUL = instance_create_layer((obj_player._x * global.tile_size) - (i * global.tile_size) + global.offsetX,
+														(obj_player._y*global.tile_size) - (i * global.tile_size) + global.offsetY,
+														"Instances",obj_grass);
+					tempGrassUL.depth = -tempGrassUL.y;
+				}
+			}
 		}
 		
 		// update player score
@@ -161,5 +223,7 @@ function scr_move_player(_direction){
 		{
 			global.map_enemies[i]._status = "free";
 		}
+	} else {
+		
 	}
 }
