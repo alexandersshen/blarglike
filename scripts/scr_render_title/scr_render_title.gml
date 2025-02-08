@@ -18,6 +18,10 @@ function scr_render_title(){
 				break;
 				
 				case global.icon_floor:
+					instance_create_layer(_col*tile_size+global.offsetX,_row*tile_size+global.offsetY,"Instances",obj_floor);
+				break;
+				
+				case global.icon_flower:
 					instance_create_layer(_col*tile_size+global.offsetX,_row*tile_size+global.offsetY,"Instances",obj_grass);
 				break;
 			}

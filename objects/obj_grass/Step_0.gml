@@ -6,6 +6,19 @@ if (_counter > 0)
 	_counter -= 1;
 } else {
 	image_alpha = 1;
+	
+	// only play the sound once
+	if (_counter == 0)
+	{
+		_counter -= 1;
+		if (room != title)
+		{
+			if (!audio_is_playing(snd_plant))
+			{
+				play_sound(snd_plant);
+			}
+		}
+	}
 }
 
 // ===--===-==-===-===--===-===-===--==-===

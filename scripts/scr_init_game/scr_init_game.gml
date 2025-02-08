@@ -33,6 +33,7 @@ function scr_init_game(){
 	global.icon_wall = "#";
 	global.icon_floor = ".";
 	global.icon_exit = "X";
+	global.icon_flower = "F";
 
 	global.player_health = 99;
 	global.player_health_max = 99;

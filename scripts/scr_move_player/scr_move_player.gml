@@ -65,6 +65,8 @@ function scr_move_player(_direction){
 					// create the disappearing sprite
 					instance_create_layer(obj_player.x,obj_player.y,"Entities",obj_player_exit);
 					
+					play_sound(snd_exit);
+					
 					scr_reset_map(false);
 				break;
 		
@@ -83,11 +85,14 @@ function scr_move_player(_direction){
 					global.map_entities[obj_player._y,obj_player._x] = global.icon_player;	
 				
 					global.console_text = "";
+					
+					play_sound(snd_walk);
 				break;
 		
 				case global.icon_wall:
 					// console("Ooof! You're run into a wall.");
 					global.console_text = "Ooof! You've run into a wall.";
+					play_sound(snd_wall);
 				break;
 			}
 		} else {	
@@ -119,6 +124,9 @@ function scr_move_player(_direction){
 					// replace the food with the player
 					global.map_entities[obj_player._y,obj_player._x] = global.icon_player;
 					
+					// play the sound
+					play_sound(snd_battery);
+					
 					// create the little special FX
 					instance_create_layer((obj_player._x * global.tile_size) + global.offsetX,obj_player._y * global.tile_size,"Entities",obj_food_get);
 				break;	
@@ -137,6 +145,9 @@ function scr_move_player(_direction){
 								global.map_enemies[i]._status = "dead";	
 							}
 					}
+					
+					// play the sound
+					play_sound(snd_nutrient);
 					
 					// update the nutrients value
 					if (global.player_nutrients + global.player_nutrients_recharge < global.player_nutrients_max)
@@ -170,11 +181,21 @@ function scr_move_player(_direction){
 			// in all directions = nutrient amount
 			// == special FX ==
 			grassCounter = 10;
+			
 			if (global.player_health <= 0)
 			{
 				console(">> creating grass now");
 				
 				obj_player.sprite_index = spr_player_dead;
+				
+				// update high score
+				if (global.player_score > global.high_score)
+				{
+					global.high_score = global.player_score;
+				}
+				
+				// play the deaht sound
+				play_sound(snd_died);
 				
 				// change all the floors around it into grass tiles as far
 				// as nutrients go
