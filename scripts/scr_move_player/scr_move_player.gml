@@ -61,6 +61,10 @@ function scr_move_player(_direction){
 				case global.icon_exit:
 					global.player_floor += 1;
 					global.console_text = "You've reached an exit!";
+					
+					// create the disappearing sprite
+					instance_create_layer(obj_player.x,obj_player.y,"Entities",obj_player_exit);
+					
 					scr_reset_map(false);
 				break;
 		
@@ -169,6 +173,9 @@ function scr_move_player(_direction){
 			if (global.player_health <= 0)
 			{
 				console(">> creating grass now");
+				
+				obj_player.sprite_index = spr_player_dead;
+				
 				// change all the floors around it into grass tiles as far
 				// as nutrients go
 				for (var i = 1; i < global.player_nutrients+1; i++)

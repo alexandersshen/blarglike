@@ -63,6 +63,9 @@ function scr_init_game(){
 	
 	global.moveSpeed = 8;
 	
+	global.transition_count = 32 * 22;
+	global.transition_timer = 50;
+	
 	random_set_seed(global.current_date);
 	
 }

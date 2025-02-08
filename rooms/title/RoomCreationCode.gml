@@ -14,3 +14,28 @@ global.title_map[16] = ["#", "#", "#", "#", ".", ".", ".", ".", ".", ".", ".", "
 console_array(global.title_map);
 
 scr_render_title();
+
+// --------------------------
+// generate transition blocks
+// --------------------------
+global.transition_array = [];
+var _index = 0;
+
+for (var _row = 0; _row < 22; _row++)
+{
+	for (var _col = 0; _col < 32; _col++)
+	{
+		tempArray = [];
+		tempArray[0] = _col;
+		tempArray[1] = _row;
+		global.transition_array[_index] = tempArray;
+		_index += 1;
+	}
+}
+
+// console(">> before transition_array: " + string(global.transition_array));
+
+// Shuffle the ARRAY to randomize the pairs
+shuffleArray(global.transition_array);
+
+// console(">> after transition_array: " + string(global.transition_array));

@@ -28,7 +28,10 @@ function scr_reset_map(_restart){
 		global.player_floor = 1;
 		global.player_atk = 1;
 	} else {	// regular next map
-		random_set_seed(real(global.current_date) + real(global.player_floor));
+		
+		// *26 is used because if we just add 1 at a time, then tomorrow's first
+		// room will essentially be today's second room.
+		random_set_seed(real(global.current_date) + real(global.player_floor)*26);
 	}
 	
 	scr_new_game();

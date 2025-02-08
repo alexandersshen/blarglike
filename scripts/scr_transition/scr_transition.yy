@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"scr_transition",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_transition",
+  "parent":{
+    "name":"render",
+    "path":"folders/Scripts/render.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

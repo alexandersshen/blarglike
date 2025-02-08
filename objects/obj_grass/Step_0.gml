@@ -22,7 +22,8 @@ if (y < 0 + global.offsetX)
 	instance_destroy();
 }
 
-if (x > (global.map_width * global.tile_size) - global.offsetX)
+//if (x > (global.map_width * global.tile_size) - global.offsetX)
+if (x > (global.map_width * global.tile_size))
 {
 	instance_destroy();
 }
