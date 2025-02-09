@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"encode_nutrients",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"encode_nutrients",
+  "parent":{
+    "name":"password",
+    "path":"folders/Scripts/password.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

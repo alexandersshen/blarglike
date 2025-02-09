@@ -43,6 +43,11 @@ function scr_init_game(){
 	global.player_floor = 1;
 	global.player_atk = 1;
 	
+	// for password tracking
+	global.player_moves = 0;
+	global.player_battery_total = 0;
+	global.player_battery_grabbed = 0;
+	
 	global.player_recharge = 5;	// how much battery gives you
 	global.player_nutrients_recharge = 1;	// how much nutrients give you
 
@@ -66,6 +71,8 @@ function scr_init_game(){
 	
 	global.transition_count = 32 * 22;
 	global.transition_timer = 50;
+	
+	global.password = "";
 	
 	random_set_seed(global.current_date);
 	

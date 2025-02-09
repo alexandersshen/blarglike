@@ -49,8 +49,12 @@ function scr_move_player(_direction){
 				//scr_player_right();
 			break;
 		}
+		
+		// update player moves
+		global.player_moves += 1;
+		console(">> player moves: " + string(global.player_moves));
 	
-		console(">> tempTile: " + string(tempTile));
+		// console(">> tempTile: " + string(tempTile));
 	
 		if (tempTileEntities == global.icon_floor)
 		{
@@ -115,8 +119,12 @@ function scr_move_player(_direction){
 					{ 
 						global.player_health = global.player_health_max;
 					} else {
-						global.player_health += global.player_recharge;
+						global.player_health += global.player_recharge + 1;
 					}
+					
+					// password purposes
+					global.player_battery_total += global.player_recharge;
+					global.player_battery_grabbed += 1;
 					
 					// set the flag
 					just_got_battery = true;
@@ -163,18 +171,19 @@ function scr_move_player(_direction){
 					} else {
 						global.player_health += (global.player_recharge * 2) + 1;
 					}
+					
+					// password purposes
+					global.player_battery_total += (global.player_recharge * 2);
+					
 				break;
 			}
 		}
 		
-		// update player health
-		// if you just got the battery, you don't lose for it. it just feels weird
-		// to get +5 but see that it only went up +4, even though logically it makes
-		// a lot of sense.
+		// update health
+		global.player_health -= 1;
+		
 		if (!just_got_battery)
 		{
-			global.player_health -= 1;
-			
 			// == special FX ==
 			// CREATE GRASS
 			// If the player is dead. explode a bunch of plants/grass
@@ -193,6 +202,15 @@ function scr_move_player(_direction){
 				{
 					global.high_score = global.player_score;
 				}
+				
+				// generate password
+				global.password = generate_daily_password(global.current_date, 
+															global.player_nutrients, 
+															global.player_floor, 
+															global.player_score,
+															global.player_battery_total, 
+															global.player_moves,
+															global.player_battery_grabbed);
 				
 				// play the deaht sound
 				play_sound(snd_died);

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"deobfuscate_date",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"deobfuscate_date",
+  "parent":{
+    "name":"password",
+    "path":"folders/Scripts/password.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

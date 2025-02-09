@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"decode_moves",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"decode_moves",
+  "parent":{
+    "name":"password",
+    "path":"folders/Scripts/password.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

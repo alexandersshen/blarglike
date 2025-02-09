@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"validate_and_extract_password",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"validate_and_extract_password",
+  "parent":{
+    "name":"password",
+    "path":"folders/Scripts/password.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

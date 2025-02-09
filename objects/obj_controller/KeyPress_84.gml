@@ -11,7 +11,7 @@ if (global.player_health <= 0)
 	var tweet_text = "BLARGLIKE Daily Run: " + string(global.high_score) + "%0A"
                   + "Score: " + string(global.player_score) + "%0A"
                   + "🌿 🌿 🤖 🌿 🌿%0A"
-                  + "Play BLARGLIKE: https://your-game-url.com";
+                  + "Play BLARGLIKE: https://www.shenbotmakes.com";
 
 	// Construct the full URL
 	var share_url = base_url + tweet_text;

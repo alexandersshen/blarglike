@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"decode_floor",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"decode_floor",
+  "parent":{
+    "name":"password",
+    "path":"folders/Scripts/password.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
