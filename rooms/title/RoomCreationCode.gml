@@ -1,6 +1,6 @@
 scr_init_game();
 
-console(">>> PASSWORD: " + string(validate_and_extract_password("402182-844-154-130-2671-914-2635")));
+// console(">>> PASSWORD: " + string(validate_and_extract_password("402182-844-154-130-2671-914-2635")));
 
 global.high_score = 0;
 global.sound_enabled = true;
