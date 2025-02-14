@@ -2,6 +2,10 @@
 
 Blarglike is a small dungeon-crawling roguelike where you play as a tiny robot on a mission to restore life to a dying ecosystem. Venture deep into procedurally generated dungeons, plant flowers, and guide nutrients to help the environment thrive. Each day offers a fresh challenge with new dungeon layouts!
 
+## Play the Game
+Game runs in HTML5 embed on itch.io: https://alexandershen.itch.io/blarglike
+Game was made in Gamemaker Studio 2
+
 ## Features
 - **Daily Procedural Dungeons** – Every day generates a unique dungeon to explore.
 - **Simple, Intuitive Controls** – Move with arrow keys, bump walls to shift nutrients (at a battery cost!).
